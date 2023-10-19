@@ -28,7 +28,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import CihazFiltreleme from "./cihaz-filtreleme";
+import CihazFiltreleme from "./filter";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];

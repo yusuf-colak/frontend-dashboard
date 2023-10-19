@@ -42,13 +42,13 @@ const ContentCard = () => {
     },
   ];
   return (
-    <div className="flex flex-row flex-wrap justify-center lg:justify-start ">
+    <div className="flex flex-row flex-wrap justify-around lg:justify-between ">
       {cardArray.map((card, index) => (
         <Card
           key={index}
           className={cn(
             `${card.bgColor}`,
-            "m-3 ml-0 w-2/4 min-w-[250px] max-w-[300px] "
+            "md:mx-0  my-2 ml-0  min-w-[250px] max-w-[350px]  md:w-[24%] w-full   "
           )}
         >
           <CardHeader>
