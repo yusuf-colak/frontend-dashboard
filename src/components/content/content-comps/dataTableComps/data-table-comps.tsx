@@ -28,7 +28,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import CihazFiltreleme from "./filter";
+import Filter from "./filter";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -65,7 +65,7 @@ export function DataTableComps<TData, TValue>({
   return (
     <div>
       <div className="flex flex-wrap  items-center py-2">
-        <CihazFiltreleme columns={columns} table={table} />
+        <Filter columns={columns} table={table} />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto ">

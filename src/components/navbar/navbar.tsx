@@ -13,33 +13,60 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
 
 const Navbar = () => {
+  const [navbarToggle, setNavbarToggle] = React.useState(true);
   return (
     <>
-      <div className="lg:fixed lg:block hidden lg:w-[250px] w-0 border-r-2  h-screen ">
-        <div className="flex flex-col h-full justify-between mx-3 ">
+      <div
+        className={`${
+          navbarToggle ? "w-[300px]" : "w-[80px]"
+        } lg:flex hidden  mr-5 h-screen `}
+      >
+        <div className="flex lg:fixed p-4 flex-col h-full justify-between items-center  border-r-2">
           <div>
-            <NavbarLogo />
-            <NavbarMenuİtems />
+            <div className="flex items-center  ">
+              <NavbarLogo
+                navbarToggle={navbarToggle}
+                setNavbarToggle={setNavbarToggle}
+              />
+              <Switch
+                className={navbarToggle ? "block ml-4" : "hidden"}
+                checked={navbarToggle}
+                onCheckedChange={setNavbarToggle}
+                aria-readonly
+              />
+            </div>
+            <NavbarMenuİtems navbarToggle={navbarToggle} />
           </div>
-          <UserNavbar />
+          <UserNavbar navbarToggle={navbarToggle} />
         </div>
       </div>
 
       <div className="lg:hidden flex flex-row justify-between items-center mx-2">
-        <NavbarLogo />
+        <NavbarLogo
+          navbarToggle={navbarToggle}
+          setNavbarToggle={setNavbarToggle}
+        />
         <Sheet>
-          <SheetTrigger>
+          <SheetTrigger
+            onClick={() => {
+              setNavbarToggle(true);
+            }}
+          >
             <Menu size={40} />
           </SheetTrigger>
           <SheetContent>
             <SheetHeader className="flex h-[98%] flex-col justify-between items-center">
               <div className="flex flex-col w-full items-start">
-                <NavbarLogo />
-                <NavbarMenuİtems />
+                <NavbarLogo
+                  navbarToggle={navbarToggle}
+                  setNavbarToggle={setNavbarToggle}
+                />
+                <NavbarMenuİtems navbarToggle={navbarToggle} />
               </div>
-              <UserNavbar />
+              <UserNavbar navbarToggle={navbarToggle} />
             </SheetHeader>
           </SheetContent>
         </Sheet>

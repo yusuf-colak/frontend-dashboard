@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const CihazFiltreleme = ({ table, columns }) => {
+const Filter = ({ table, columns }) => {
   return (
     <div className="flex flex-row flex-wrap ">
       <div className="flex items-center mb-3 p-2 mr-4 h-10 rounded-md border border-input bg-background  ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
@@ -24,24 +24,23 @@ const CihazFiltreleme = ({ table, columns }) => {
           }
         />
       </div>
-        <Select
-          value={(table.getColumn("status")?.getFilterValue() as string) ?? ""}
-          onValueChange={(newValue) => {
-            // `newValue` burada seçilen değeri temsil eder.
-            table.getColumn("status")?.setFilterValue(newValue);
-          }}
-        >
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="View All" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem>View All</SelectItem>
-            <SelectItem value="Customer">Customer</SelectItem>
-            <SelectItem value="Churned">Churned</SelectItem>
-          </SelectContent>
-        </Select>
+      <Select
+        value={(table.getColumn("status")?.getFilterValue() as string) ?? ""}
+        onValueChange={(newValue) => {
+          table.getColumn("status")?.setFilterValue(newValue);
+        }}
+      >
+        <SelectTrigger className="w-[180px]">
+          <SelectValue placeholder="View All" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem>View All</SelectItem>
+          <SelectItem value="Customer">Customer</SelectItem>
+          <SelectItem value="Churned">Churned</SelectItem>
+        </SelectContent>
+      </Select>
     </div>
   );
 };
 
-export default CihazFiltreleme;
+export default Filter;
