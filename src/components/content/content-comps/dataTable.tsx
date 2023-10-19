@@ -87,9 +87,5 @@ export default function DataTable() {
     getData();
   }, []);
 
-  return (
-    <div className="sm:container  w-[350px]   mx-auto py-10">
-      <DataTableComps columns={columns} data={data} getData={getData} />
-    </div>
-  );
+  return <DataTableComps columns={columns} data={data} getData={getData} />;
 }

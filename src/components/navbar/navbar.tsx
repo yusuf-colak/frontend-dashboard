@@ -17,15 +17,17 @@ import { Menu } from "lucide-react";
 const Navbar = () => {
   return (
     <>
-      <div className="hidden lg:flex lg:flex-col flex-row  justify-between lg:w-[250px] w-full h-screen items-start pt-3 px-5 border-r-2 ">
-        <div>
-          <NavbarLogo />
-          <NavbarMenuİtems />
+      <div className="lg:fixed lg:block hidden lg:w-[250px] w-0 border-r-2  h-screen ">
+        <div className="flex flex-col h-full justify-between mx-3 ">
+          <div>
+            <NavbarLogo />
+            <NavbarMenuİtems />
+          </div>
+          <UserNavbar />
         </div>
-        <UserNavbar />
       </div>
 
-      <div className="lg:hidden flex flex-row justify-between items-center">
+      <div className="lg:hidden flex flex-row justify-between items-center mx-2">
         <NavbarLogo />
         <Sheet>
           <SheetTrigger>
@@ -33,7 +35,7 @@ const Navbar = () => {
           </SheetTrigger>
           <SheetContent>
             <SheetHeader className="flex h-[98%] flex-col justify-between items-center">
-              <div className="flex flex-col w-full items-center">
+              <div className="flex flex-col w-full items-start">
                 <NavbarLogo />
                 <NavbarMenuİtems />
               </div>

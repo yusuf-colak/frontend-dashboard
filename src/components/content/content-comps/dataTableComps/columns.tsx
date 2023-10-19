@@ -48,7 +48,7 @@ export const columns: ColumnDef<Payment>[] = [
     header: () => <div className="">Abouts</div>,
     accessorKey: "About1",
     cell: ({ row }) => (
-      <div className="flex flex-col">
+      <div className="flex flex-col min-w-[200px] ">
         <div> {row.original.About1}</div>
         <div>{row.original.About2}</div>
       </div>

@@ -27,7 +27,6 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 import CihazFiltreleme from "./cihaz-filtreleme";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
@@ -64,8 +63,8 @@ export function DataTableComps<TData, TValue>({
     },
   });
   return (
-    <>
-      <div className="flex flex-wrap items-center py-4">
+    <div>
+      <div className="flex flex-wrap  items-center py-2">
         <CihazFiltreleme columns={columns} table={table} />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -94,7 +93,7 @@ export function DataTableComps<TData, TValue>({
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-md border ">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -144,7 +143,7 @@ export function DataTableComps<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
+      <div className="flex items-center justify-end py-4">
         <Button
           variant="outline"
           size="sm"
@@ -162,6 +161,6 @@ export function DataTableComps<TData, TValue>({
           <ArrowBigRight />
         </Button>
       </div>
-    </>
+    </div>
   );
 }

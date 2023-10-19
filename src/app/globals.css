@@ -74,7 +74,8 @@
     @apply bg-background text-foreground;
   }
 }
-.custom-width {
-  width: calc(100vw - 270px);
-  /* Buradaki 270px değerini gerektiğiniz gibi ayarlayabilirsiniz. */
+@media screen and (min-width: 1024px) {
+  .custom-width {
+    width: calc(100vw - 300px);
+  }
 }
