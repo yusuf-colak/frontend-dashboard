@@ -32,8 +32,11 @@ const Navbar = () => {
             <Menu size={40} />
           </SheetTrigger>
           <SheetContent>
-            <SheetHeader className="flex h-[98%] flex-col justify-between">
-              <NavbarMenuİtems />
+            <SheetHeader className="flex h-[98%] flex-col justify-between items-center">
+              <div className="flex flex-col w-full items-center">
+                <NavbarLogo />
+                <NavbarMenuİtems />
+              </div>
               <UserNavbar />
             </SheetHeader>
           </SheetContent>

@@ -64,12 +64,12 @@ export function DataTableComps<TData, TValue>({
     },
   });
   return (
-    <div>
-      <div className="flex items-center py-4">
+    <>
+      <div className="flex flex-wrap items-center py-4">
         <CihazFiltreleme columns={columns} table={table} />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
+            <Button variant="outline" className="ml-auto ">
               Options
             </Button>
           </DropdownMenuTrigger>
@@ -162,6 +162,6 @@ export function DataTableComps<TData, TValue>({
           <ArrowBigRight />
         </Button>
       </div>
-    </div>
+    </>
   );
 }

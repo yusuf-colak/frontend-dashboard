@@ -42,7 +42,7 @@ const ContentCard = () => {
     },
   ];
   return (
-    <div className="flex flex-row flex-wrap ">
+    <div className="flex flex-row flex-wrap justify-center ">
       {cardArray.map((card, index) => (
         <Card
           key={index}
