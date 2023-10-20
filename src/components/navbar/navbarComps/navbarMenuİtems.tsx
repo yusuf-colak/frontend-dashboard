@@ -210,43 +210,43 @@ const NavbarMenuİtems = ({ navbarToggle }) => {
         {menu.map((item, index) => (
           <AccordionItem key={index} className="w-full" value={`item-${index}`}>
             <AccordionTrigger navbarToggle={navbarToggle}>
-              <div className="flex flex-row">
-                <div>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger
-                        className={cn(
-                          navbarToggle ? "mr-1 p-1" : "ml-2 p-1",
-                          !navbarToggle &&
-                            manuInside.map((itemInside, indexInside) => {
-                              if (
-                                itemInside.title === item.title &&
-                                itemInside.link === pathName
-                              ) {
-                                return "bg-yellow-200 rounded-full  ";
-                              }
-                            })
-                        )}
-                      >
-                        {item.logo}
-                      </TooltipTrigger>
+              <div className="flex flex-row items-center ">
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger
+                      asChild
+                      className={cn(
+                        navbarToggle ? "mr-1 p-1" : "ml-2 p-1",
+                        !navbarToggle &&
+                          manuInside.map((itemInside, indexInside) => {
+                            if (
+                              itemInside.title === item.title &&
+                              itemInside.link === pathName
+                            ) {
+                              return "bg-yellow-200 rounded-full  ";
+                            }
+                          })
+                      )}
+                    >
+                      <div className="">{item.logo}</div>
+                    </TooltipTrigger>
 
-                      {manuInside.map((itemInside, indexInside) => {
-                        if (
-                          itemInside.title === item.title &&
-                          itemInside.link === pathName
-                        ) {
-                          return (
-                            <TooltipContent key={indexInside}>
-                              <p> {itemInside.insideTitle}</p>
-                            </TooltipContent>
-                          );
-                        }
-                      })}
-                    </Tooltip>
-                  </TooltipProvider>
-                </div>
-                <div> {navbarToggle && item.title}</div>
+                    {manuInside.map((itemInside, indexInside) => {
+                      if (
+                        itemInside.title === item.title &&
+                        itemInside.link === pathName
+                      ) {
+                        return (
+                          <TooltipContent key={indexInside}>
+                            {itemInside.insideTitle}
+                          </TooltipContent>
+                        );
+                      }
+                    })}
+                  </Tooltip>
+                </TooltipProvider>
+
+                {navbarToggle && item.title}
               </div>
             </AccordionTrigger>
             {manuInside.map(
