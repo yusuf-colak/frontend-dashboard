@@ -15,8 +15,16 @@ import {
   Settings,
   Users,
 } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 const NavbarMenuİtems = ({ navbarToggle }) => {
   const pathName = usePathname();
   const menu = [
@@ -203,15 +211,48 @@ const NavbarMenuİtems = ({ navbarToggle }) => {
           <AccordionItem key={index} className="w-full" value={`item-${index}`}>
             <AccordionTrigger navbarToggle={navbarToggle}>
               <div className="flex flex-row">
-                <div className={navbarToggle ? "mr-2" : "ml-3"}>
-                  {item.logo}
+                <div>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger
+                        className={cn(
+                          navbarToggle ? "mr-1 p-1" : "ml-2 p-1",
+                          !navbarToggle &&
+                            manuInside.map((itemInside, indexInside) => {
+                              if (
+                                itemInside.title === item.title &&
+                                itemInside.link === pathName
+                              ) {
+                                return "bg-yellow-200 rounded-full  ";
+                              }
+                            })
+                        )}
+                      >
+                        {item.logo}
+                      </TooltipTrigger>
+
+                      {manuInside.map((itemInside, indexInside) => {
+                        if (
+                          itemInside.title === item.title &&
+                          itemInside.link === pathName
+                        ) {
+                          return (
+                            <TooltipContent key={indexInside}>
+                              <p> {itemInside.insideTitle}</p>
+                            </TooltipContent>
+                          );
+                        }
+                      })}
+                    </Tooltip>
+                  </TooltipProvider>
                 </div>
-                {navbarToggle && item.title}
+                <div> {navbarToggle && item.title}</div>
               </div>
             </AccordionTrigger>
             {manuInside.map(
               (itemInside, indexInside) =>
-                itemInside.title === item.title && (
+                itemInside.title === item.title &&
+                navbarToggle && (
                   <AccordionContent
                     key={indexInside}
                     className="border-l-2 ml-3 pl-2"
